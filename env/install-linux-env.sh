@@ -9,7 +9,7 @@ if [ -z "$AWS_ENV" ]
 		echo "Start install Env, please run with Root Privileges"	
                 apt-get update
                 apt-get install -y awscli
-	then
+	else
 		echo "aws cli alread configured"
 fi
 
@@ -43,7 +43,7 @@ if [ -z "$HELM_ENV" ]
                         helm repo add chatfood  s3://chatfood-helm/charts                                     
                         helm repo add chatfood-support-locals-web s3://chatfood-helm/charts                                      
                         helm repo add support-locals-web s3://chatfood-helm/charts  
-	then
+	else
 		echo "Helm already installed"
 fi
 
