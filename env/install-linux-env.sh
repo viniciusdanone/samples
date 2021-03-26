@@ -33,6 +33,16 @@ if [ -z "$HELM_ENV" ]
                 echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
                 apt-get update
                 apt-get install -y helm
+
+                echo "Install helm s3 plugin"
+                        helm plugin install https://github.com/hypnoglow/helm-s3.git
+
+                echo "Install chatfood Repository"
+                        helm repo add chatfood-support-locals-web s3://chatfood-helm/charts
+                        helm repo add chatfood-marketplace s3://chatfood-helm/charts
+                        helm repo add chatfood  s3://chatfood-helm/charts                                     
+                        helm repo add chatfood-support-locals-web s3://chatfood-helm/charts                                      
+                        helm repo add support-locals-web s3://chatfood-helm/charts  
 	then
 		echo "Helm already installed"
 fi
