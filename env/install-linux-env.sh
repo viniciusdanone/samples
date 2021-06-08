@@ -38,11 +38,10 @@ if [ -z "$HELM_ENV" ]
                         helm plugin install https://github.com/hypnoglow/helm-s3.git
 
                 echo "Install chatfood Repository"
-                        helm repo add chatfood-support-locals-web s3://chatfood-helm/charts
-                        helm repo add chatfood-marketplace s3://chatfood-helm/charts
+                        helm plugin install https://github.com/hypnoglow/helm-s3.git
                         helm repo add chatfood  s3://chatfood-helm/charts                                     
-                        helm repo add chatfood-support-locals-web s3://chatfood-helm/charts                                      
-                        helm repo add support-locals-web s3://chatfood-helm/charts  
+                        helm repo add chatfood-stg s3://chatfood-helm-stg/charts
+                        helm repo update
 	else
 		echo "Helm already installed"
 fi
@@ -65,6 +64,6 @@ echo "Configuring AWS Env"
 		aws configure
 
 
-
+        
 
 
