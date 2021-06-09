@@ -3,7 +3,7 @@ MYSQL_PASSWORD="S0mereallyR4ndomP4ss"
 MYSQL_SVC="mysql-test-longhorn"
 TEST_NUMBER="TEST-00"
 VAR="0"
-MAX="4"
+MAX="1"
 
 fn_drop_database(){
 
@@ -44,6 +44,7 @@ do
     fn_drop_database;
     fn_create_database;
     fn_run_test;
+    echo "=============== TEST NUMBER $VAR ================" >> /tmp/$TEST_NUMBER.log ""
 
     VAR=$(( $VAR + 1 ))
 done
