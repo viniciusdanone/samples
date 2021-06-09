@@ -4,21 +4,21 @@ MYSQL_SVC="mysql-test-longhorn"
 
 fn_drop_database(){
 
-    mysql -h  $MYSQL_SVC -uroot -p"$MYSQL_PASSWORD" --execute="drop database test2;"
-    mysql -h  $MYSQL_SVC -uroot -p"$MYSQL_PASSWORD" --execute="drop database test4;"
-    mysql -h  $MYSQL_SVC -uroot -p"$MYSQL_PASSWORD" --execute="drop database test6;"
-    mysql -h  $MYSQL_SVC -uroot -p"$MYSQL_PASSWORD" --execute="drop database test8;"
-    mysql -h  $MYSQL_SVC -uroot -p"$MYSQL_PASSWORD" --execute="drop database test10;"
+    mysql -h $MYSQL_SVC -uroot -p$MYSQL_PASSWORD --execute="drop database test2;"
+    mysql -h $MYSQL_SVC -uroot -p$MYSQL_PASSWORD --execute="drop database test4;"
+    mysql -h $MYSQL_SVC -uroot -p$MYSQL_PASSWORD --execute="drop database test6;"
+    mysql -h $MYSQL_SVC -uroot -p$MYSQL_PASSWORD --execute="drop database test8;"
+    mysql -h $MYSQL_SVC -uroot -p$MYSQL_PASSWORD --execute="drop database test10;"
 
 }
 
 fn_create_database(){
 
-    mysql -h  $MYSQL_SVC -uroot -p"$MYSQL_PASSWORD" --execute="create database test2;"
-    mysql -h  $MYSQL_SVC -uroot -p"$MYSQL_PASSWORD" --execute="create database test4;"
-    mysql -h  $MYSQL_SVC -uroot -p"$MYSQL_PASSWORD" --execute="create database test6;"
-    mysql -h  $MYSQL_SVC -uroot -p"$MYSQL_PASSWORD" --execute="create database test8;"
-    mysql -h  $MYSQL_SVC -uroot -p"$MYSQL_PASSWORD" --execute="create database test10;"
+    mysql -h $MYSQL_SVC -uroot -p"$MYSQL_PASSWORD" --execute="create database test2;"
+    mysql -h $MYSQL_SVC -uroot -p"$MYSQL_PASSWORD" --execute="create database test4;"
+    mysql -h $MYSQL_SVC -uroot -p"$MYSQL_PASSWORD" --execute="create database test6;"
+    mysql -h $MYSQL_SVC -uroot -p"$MYSQL_PASSWORD" --execute="create database test8;"
+    mysql -h $MYSQL_SVC -uroot -p"$MYSQL_PASSWORD" --execute="create database test10;"
 }
 
 fn_run_test(){
