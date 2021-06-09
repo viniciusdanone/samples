@@ -5,11 +5,12 @@ fn_install_agent(){
 }
 
 fn_create_config(){ 
-    wget https://raw.githubusercontent.com/viniciusdanone/samples/master/config.json
-    mv config.json /opt/aws/amazon-cloudwatch-agent/bin/
+    /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
 }
 
 fn_apply_agent(){
+    /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s 
+        sleep 10
     /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
     /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a status
 }
