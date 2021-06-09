@@ -1,6 +1,6 @@
 #!/bin/bash
 MYSQL_PASSWORD="S0mereallyR4ndomP4ss"
-MYSQL_SVC="mysql-test-longhorn"
+MYSQL_SVC="mysql-test-azure"
 VAR="0"
 MAX="4"
 
