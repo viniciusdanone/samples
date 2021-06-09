@@ -22,11 +22,10 @@ fn_create_database(){
 }
 
 fn_run_test(){
-    sysbench --test=oltp --oltp-table-size=2000000 --db-driver=mysql --mysql-db=test2 --mysql-user=root --mysql-password=$MYSQL_PASSWORD prepare
-    sysbench --test=oltp --oltp-table-size=2000000 --db-driver=mysql --mysql-db=test2 --mysql-user=root --mysql-password=$MYSQL_PASSWORD --max-time=60 --oltp-read-only=on --max-requests=0 --num-threads=50 run
-    
-    sysbench --test=oltp --oltp-table-size=4000000 --db-driver=mysql --mysql-db=test4 --mysql-user=root --mysql-password=$MYSQL_PASSWORD prepare
-    sysbench --test=oltp --oltp-table-size=4000000 --db-driver=mysql --mysql-db=test4 --mysql-user=root --mysql-password=$MYSQL_PASSWORD --max-time=60 --oltp-read-only=on --max-requests=0 --num-threads=100 run
+    sysbench --test=oltp --oltp-table-size=200 --db-driver=mysql --mysql-db=test2 --mysql-user=root --mysql-password=$MYSQL_PASSWORD prepare
+    sysbench --test=oltp --oltp-table-size=200 --db-driver=mysql --mysql-db=test2 --mysql-user=root --mysql-password=$MYSQL_PASSWORD --max-time=60 --oltp-read-only=on --max-requests=0 --num-threads=50 run
+    sysbench --test=oltp --oltp-table-size=400 --db-driver=mysql --mysql-db=test4 --mysql-user=root --mysql-password=$MYSQL_PASSWORD prepare
+    sysbench --test=oltp --oltp-table-size=400 --db-driver=mysql --mysql-db=test4 --mysql-user=root --mysql-password=$MYSQL_PASSWORD --max-time=60 --oltp-read-only=on --max-requests=0 --num-threads=100 run
     
     # sysbench --test=oltp --oltp-table-size=6000000 --db-driver=mysql --mysql-db=test6 --mysql-user=root --mysql-password=$MYSQL_PASSWORD prepare
     # sysbench --test=oltp --oltp-table-size=6000000 --db-driver=mysql --mysql-db=test6 --mysql-user=root --mysql-password=$MYSQL_PASSWORD --max-time=60 --oltp-read-only=on --max-requests=0 --num-threads=150 run
