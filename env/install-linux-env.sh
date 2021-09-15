@@ -21,6 +21,11 @@ if [ -z "$KUBECTL_ENV" ]
                 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
                 apt-get update
                 apt-get install -y kubectl
+                chmod o-r ~/.kube/config
+                chmod g-r ~/.kube/config
+                echo "Installing kubectx tool"
+                        wget https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx
+                        mv kubectx /usr/sbin ; chmod +x /usr/sbin/kubectx        
 	else
              echo "Docker already installed" 
 fi
