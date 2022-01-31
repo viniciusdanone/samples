@@ -18,7 +18,7 @@ time aws rds restore-db-instance-from-db-snapshot \
 }
 
 fn_instance_upgrade(){
-echo "Starting upgrade of instance $RDS_DESTINATION"
+echo "Starting upgrade and promotion instance $RDS_DESTINATION"
 time aws rds modify-db-instance \
     --db-instance-identifier $RDS_DESTINATION \
     --backup-retention-period 7 \
