@@ -13,8 +13,7 @@ time aws rds restore-db-instance-from-db-snapshot \
     --publicly-accessible \
     --db-instance-identifier $RDS_DESTINATION \
     --db-snapshot-identifier $RDS_SNAPSHOT \
-    --db-instance-class $RDS_SIZE \
-    --wait
+    --db-instance-class $RDS_SIZE 
 }
 
 fn_instance_upgrade(){
@@ -22,9 +21,10 @@ echo "Starting upgrade and promotion instance $RDS_DESTINATION"
 time aws rds modify-db-instance \
     --db-instance-identifier $RDS_DESTINATION \
     --backup-retention-period 7 \
+    --allow-major-version-upgrade \
     --engine-version $ENGINE_VERSION \
     --apply-immediately \
-    --wait
+
 }
 
 fn_instance_list(){
