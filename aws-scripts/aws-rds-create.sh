@@ -1,9 +1,17 @@
 #!/bin/bash
+DATE=$(date +'%m-%d-%Y')
 ENGINE_VERSION="5.7.36"
-RDS_DESTINATION="chatlab-migration-primary"
+RDS_DESTINATION="chatlab-snapshot-primary"
 RDS_SOURCE="chatlab-stg"
-RDS_SNAPSHOT="rds:chatlab-stg-2022-01-30-23-07"
+RDS_SNAPSHOT="rds:snapshot-$DATE"
 RDS_SIZE="db.t2.small"
+
+fn_snapshot_create (){
+echo "Starting RDS snapshot $RDS_SNAPSHOT, wait and take a coffe..."    
+time aws rds create-db-snapshot \
+    --db-instance-identifier $RDS_SOURCE \
+    --db-snapshot-identifier $RDS_SNAPSHOT \
+}
 
 fn_snapshot_restore (){
 echo "Starting restore from snampshot $RDS_SNAPSHOT, wait and take a coffe..."    
@@ -23,8 +31,7 @@ time aws rds modify-db-instance \
     --backup-retention-period 7 \
     --allow-major-version-upgrade \
     --engine-version $ENGINE_VERSION \
-    --apply-immediately \
-
+    --apply-immediately
 }
 
 fn_instance_list(){
@@ -33,6 +40,8 @@ raws ds describe-db-instances \
 }
 
 case "$1" in
+ 'snapshot')
+   fn_snapshot_create;;
  'restore')
    fn_snapshot_restore;;
  'upgrade')
@@ -40,5 +49,5 @@ case "$1" in
  'describe')
    fn_instance_list;;
  *)
-       echo "Usage: $0 {restore|upgrade|describe}"
+       echo "Usage: $0 {snapshot|restore|upgrade|describe}"
 esac
