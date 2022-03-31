@@ -1,0 +1,14 @@
+on:
+  schedule:
+    - cron: '30 18 * * *'
+    - cron: '00 19 * * *'
+    - cron: '30 19 * * *'
+
+jobs:
+  test_schedule_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Every day 12:30 UTC
+        run: date
+      - name: Every time
+        run: echo "This step will always run"
