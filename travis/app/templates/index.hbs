@@ -1,0 +1,11 @@
+<h1>Berlin Pizza</h1>
+
+<div class="pizza">
+{{#each model.kieze as |kiez|}}
+  {{pizza-kiez kiez=kiez places=model.places class=kiez.name}}
+{{else}}
+  <p>Nothing here</p>
+{{/each}}
+</div>
+
+{{outlet}}

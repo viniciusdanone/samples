@@ -1,0 +1,109 @@
+*
+  box-sizing: border-box
+
+$cream: #FFFCEB
+$break: 600px
+
+html,
+body
+  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif
+
+body
+  background-color: $cream
+
+
+.pizza
+  position: relative
+  @media (min-width: $break)
+    width: 400px
+    height: 400px
+    margin: auto
+
+.pizza-slice
+  cursor: pointer
+
+  @media (min-width: $break)
+    position: absolute
+
+  &:hover
+    .slice-header
+      animation-play-state: paused
+
+  svg
+    transition: transform 200ms ease
+
+  &.Wedding
+    .slice-Wedding
+      transform: rotate(-15deg)
+    &:hover .slice-Wedding
+      transform: translate(0, -10%)  rotate(-15deg)
+
+    .slice-header
+      top: 0%
+      left: -40%
+
+  &.Pberg
+    right: 5em
+    .slice-Pberg
+      transform: rotate(45deg)
+    &:hover .slice-Pberg
+      transform: translate(7%, -10%) rotate(45deg)
+    .slice-header
+      top: 0%
+      left: 70%
+      text-align: center
+
+  &.Fhain-Xberg
+    top: 6.7em
+    right: 1em
+    .slice-Fhain-Xberg
+      transform: rotate(-255deg)
+    &:hover .slice-Fhain-Xberg
+      transform: translate(10%, 0) rotate(-255deg)
+    .slice-header
+      top: 40%
+      left: 50%
+      text-align: right
+
+  &.Neukölln
+    top: 13.7em
+    left: 8em
+    .slice-Neukölln
+      transform: rotate(166deg)
+
+    &:hover .slice-Neukölln
+      transform: translate(0, 10%) rotate(166deg)
+
+    .slice-header
+      top: 70%
+      left: 40%
+      text-align: center
+
+.slice-header
+  margin: auto
+  width: 100%
+  text-shadow: $cream 0 0 3px
+  animation: jump infinite 2s ease
+  animation-direction: alternate
+
+  @media (min-width: $break)
+    position: absolute
+
+  small
+    display: block
+
+.place
+  z-index: 2
+  top: 27%
+  left: 30%
+  width: 11em
+  padding-bottom: 2em
+  background-color: $cream
+  @media (min-width: $break)
+    position: fixed
+
+@keyframes jump
+  0%
+    transform: translateY(-20%)
+  100%
+    transform: translateY(-40%)

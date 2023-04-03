@@ -1,0 +1,11 @@
+{{inline-svg 'img/slice' class=(concat 'slice-' kiez.name)}}
+
+<h2 class="slice-header">{{kiez.name}} <small>{{kiez.long}}</small></h2>
+
+{{#if isShowingPlaces}}
+  {{#each filteredPlaces as |pizza|}}
+    {{pizza-place place=pizza}}
+  {{else}}
+    <p>Nothing here</p>
+  {{/each}}
+{{/if}}
